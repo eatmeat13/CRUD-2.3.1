@@ -19,15 +19,10 @@ public class CarController {
     @GetMapping("/cars")
     public String printCars(@RequestParam(defaultValue="10") Integer count, ModelMap model) {
         CarServiceImp carsServiceImpl = new CarServiceImp();
-        if (count < 5) {
             List<Car> qtyCars = carsServiceImpl.getCars(count);
             model.addAttribute("cars", qtyCars);
             return "cars";
-        } else {
-            List<Car> qtyCars = carsServiceImpl.getCars(5);
-            model.addAttribute("cars", qtyCars);
-            return "cars";
-        }
+
     }
 }
 
