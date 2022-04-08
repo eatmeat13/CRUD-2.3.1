@@ -6,16 +6,17 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import web.dao.UserDao;
 import web.model.User;
+import web.service.UserSer;
 import web.service.UserService;
 
 @Controller
 @RequestMapping("/users")
 public class UserController {
-    private final UserService userService;
+    private final UserSer userService;
 
 
     @Autowired
-    public UserController(UserService userService) {
+    public UserController(UserSer userService) {
         this.userService = userService;
     }
 

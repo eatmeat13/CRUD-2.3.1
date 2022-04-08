@@ -10,7 +10,7 @@ import java.util.List;
 
 
 @Repository
-public class UserDao {
+public class UserDao implements UserDaoInter {
 
     @PersistenceContext
     private EntityManager entityManager;
@@ -24,11 +24,13 @@ public class UserDao {
     }
 
 
+
     public void delete(int id) {
         entityManager.createQuery("delete from User  where id = :paramId").setParameter("paramId", id).executeUpdate();
 
 
     }
+
 
 
     public void update(User user) {
@@ -37,11 +39,13 @@ public class UserDao {
     }
 
 
+
     public List<User> getList() {
         TypedQuery<User> query = entityManager.createQuery("from User", User.class);
         return query.getResultList();
 
     }
+
 
 
     public User getUser(int id) {
